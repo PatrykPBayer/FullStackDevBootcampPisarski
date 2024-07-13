@@ -1,3 +1,4 @@
+/*
 //alert do wywołania na stronie
 // alert("Hello world")
 
@@ -112,3 +113,68 @@ if(money >20 || voucher){
 if(!(15>20)){
     console.log("NOT")
 }
+*/
+
+//Funkcje
+
+function exampleFunction(){
+    console.log("Function")
+}
+
+function substractArgs(arg1, arg2){
+    let result = arg1 + arg2
+    console.log(result)
+}
+
+function calculateAge(yearOfBirth){
+    return 2024 - yearOfBirth
+}
+
+function checkIfCanWatchMovie(age, money){
+    if(age >= 18 && money >= 30){
+        return true
+    }else{
+        return false
+    }
+}
+
+
+window.onload = function (){
+    exampleFunction()
+    substractArgs(2, 3)
+    substractArgs(5, 7)
+    substractArgs(89372991284759128943789123, 32958508010913830985050190)
+
+    let myAge = calculateAge(1995)
+    console.log("Mój wiek to: " + myAge)        //zwracanie funkcji gdy jest return
+    let myMoney = 50
+    console.log(checkIfCanWatchMovie(myAge, myMoney))
+}
+
+//Funkcja arrow function
+
+function basicAdd(a, b){        //standardowa funkcja
+    return a + b
+}
+
+const newAdd = (a, b) => a + b //tak definiujemy fukcję arrow
+
+const addAndPrint = (a, b) =>{
+    let ret = a + b
+    console.log("add and print ", ret)
+    return ret
+}
+
+window.onload = function (){
+    console.log(basicAdd(2,5))
+    console.log("New add: " + newAdd(3, 7))
+
+    addAndPrint(4, 5)
+
+    let array = [1, 2, 3, 4]
+    array.forEach (element =>{
+        console.log(element)
+    })
+
+}
+
