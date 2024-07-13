@@ -64,3 +64,51 @@ console.log(100 <= 100)
 //Ternary operator - zwraca konketne wyrażenie w zależności od wyniku
 let result = 100 > 98 ? "Tak" : "Nie"
 console.log(result)
+
+
+//LOOPS
+
+//For loop
+for(let i=0; i<9; i=i+1){ //lub i++
+    console.log(i)
+}
+for(let i=10; i>=0; i--){ //lub i++
+    console.log(i)
+}
+//console.log(i)  // zmienna poza pętlą nie jest rozpoznana - wyskoczy error w logu
+
+//For each
+cars.forEach(function(element){
+    console.log(element)
+})
+
+
+//Warunki
+//IF ELSE
+
+let themperature = 40.8
+if(themperature >= 36 && themperature <37){
+    console.log("W normie")
+}else if(themperature >= 37 && themperature < 38){
+    console.log("Stan podgorączkowy")
+}else if(themperature >=38 && themperature < 40){
+    console.log("Stan poważny")
+}else{
+    console.log("Umierasz")
+}
+
+//OR
+
+let money = 10
+let voucher = false
+
+if(money >20 || voucher){
+    console.log("Możesz iść na film")
+}else{
+    console.log("Nie możesz iść na film")
+}
+
+//NOT
+if(!(15>20)){
+    console.log("NOT")
+}
