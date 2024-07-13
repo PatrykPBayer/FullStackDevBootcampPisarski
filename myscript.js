@@ -165,6 +165,8 @@ const addAndPrint = (a, b) =>{
     return ret
 }
 
+
+
 window.onload = function (){
     console.log(basicAdd(2,5))
     console.log("New add: " + newAdd(3, 7))
@@ -174,6 +176,22 @@ window.onload = function (){
     let array = [1, 2, 3, 4]
     array.forEach (element =>{
         console.log(element)
+    })
+
+    document.getElementById("actionButton").onclick = function(){
+        alert("Witaj " + document.getElementById("inputBox").value)
+    }
+
+    //Inna metoda wywołania okna
+    const button = document.querySelector('#actionButton')
+    const inputBox = document.querySelector('#inputBox')
+const message = document.querySelector('#message')
+
+message.innerHTML='<h1> aaaa</h1>'          //przekazanie html do div w index???
+    button.addEventListener("click", function(){
+        alert("CLICK")
+        alert(inputBox.value)
+        //message.innerHTML='<h1> aaaa</h1>'
     })
 
 }
