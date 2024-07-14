@@ -34,3 +34,7 @@ const promise = new Promise(( resolve, reject) => {
         reject("NOT OK")
     }
 })
+
+promise.then(result => {
+    console.log(result)
+})
