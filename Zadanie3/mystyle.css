@@ -1,0 +1,24 @@
+body {
+    background-color: lightblue;
+}
+
+h1{
+    color: navy;
+    margin-left: 20px;
+}
+
+/* dla paragrafu ogólne */
+p{
+    color: red;
+}
+
+
+/* dla elementu id parametry */
+#myParagraph{
+    color: blue;
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
