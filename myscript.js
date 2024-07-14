@@ -1,40 +1,56 @@
 //Wzorce projektowe - gotowe rozwiązania na istniejące problemy
 
-//Singleton - pozwala zapewnic istnienie wyłącznie jednej instancji klasy/obiektu
+//Factory - ułątwia tworzenie nowych obiektów określonego (stworzonego typu)
 
-//klasa zwykła
+//Klasyczna klasa
 /*
-class AppConfig {       //nazwa kalsy z dużej litery zawsze
-    firstName = "Patryk"
-    lastName = "Pi"
-    age = 15
-}          
-
-//instancja klasy
-
-const myInstance = new AppConfig()
-console.log(myInstance)
-*/
-//klasa z singletonem
-
-class AppConfig {       
-    constructor(number = 5, urlToServer = "prod_server"){    //domyślna wartośc dla obiektu
-        if(AppConfig.exists){
-            return AppConfig.instance
-        }
-    //else
-    this.randomNumber = Math.random()
-    this.number = number
-    this.urlToServer = urlToServer
-    AppConfig.exists = true
-    AppConfig.instance = this
-    return this
+class Product{
+    display(){
+        console.log("Product")
     }
-} 
+}
 
-const configObject = new AppConfig(8, "localhost")
-const configObject2 = new AppConfig(12)
+//Klasa product factory do częstego tworzenia
+class ProductFactory{
+    createProduct(){
+        return new Product()
+    }
+}
 
-console.log(configObject)
-console.log(configObject2)
-console.log(configObject==configObject2)
+const factory = new ProductFactory()
+
+const product = factory.createProduct();    //średnik
+const product2 = factory.createProduct();
+product.display()
+product2.display()
+*/
+
+//z parametrami
+
+class Product{
+
+    constructor(width, height, weight){
+        this.width = width
+        this.height = height
+        this.weight = weight
+    }
+
+    display(){
+        console.log("Product: " + this.width + " " + this.height + " " + this.weight)
+    }
+}
+
+//Klasa product factory do częstego tworzenia
+class ProductFactory{
+    createProduct(width, height, weight){
+        return new Product(width, height, weight)
+    }
+}
+
+const factory = new ProductFactory()
+
+const product = factory.createProduct(20, 100, 90);    //średnik nieobowiązkowy
+const product2 = factory.createProduct(30, 60, 90);
+product.display()
+product2.display()
+
