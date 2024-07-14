@@ -1,50 +1,17 @@
-//Wzorce projektowe - gotowe rozwiązania na istniejące problemy
+//obiekty powtórka
 
-//Obserwator/Observer
-
-function Click(){
-    this.handlers = []
+const Person = function(name, surname, age){
+    this.name = name
+    this. surname = surname
+    this.age = age
 }
 
-Click.prototype = {
+const person = new Person("Jan", "Kowalski", 35)
+const person2 = new Person("Jan", "Nowak", 25)
+console.log(person, person2)
+console.log(person2.surname)         //drukowanie konkretnej cechy obiektu 
 
-    subscribe: function (fn){
-        this.handlers.push(fn)
-    },
+//tablica z obiektów
 
-    unsubscribe: function(fn){
-        this.handlers = this.handlers.filter(
-            function (item){
-                if (item !== fn){
-                    return item
-                }
-            }
-        )
-    },
-
-    fire: function (o, thisObj){
-        var scope = thisObj || window
-        this.handlers.forEach(function(item){
-            item.call(scope, o)
-        })
-    }
-}
-
-function run(){
-    var clickHandler = function(item){
-        console.log("Fired: " + item)
-    }
-
-    var click = new Click()
-
-    click.subscribe(clickHandler)
-    click.fire("Event #1")
-    click.unsubscribe(clickHandler)
-    click.fire("Event #2")
-    click.subscribe(clickHandler)
-    click.fire("Event #3")
-}
-
-window.onclick = function(){
-    run()
-}
+let persons = [person, person2, new Person("Mick", "Kowalski", 65)]
+console.log(persons)
