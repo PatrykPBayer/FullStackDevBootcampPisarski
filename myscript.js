@@ -1,27 +1,13 @@
-//Prototypes
+//1. Zdefiniuj obiekt o nazwie oferta, z następującymi właściwościami:
+// marka, model, cena i metodą o nazwie koszt100km(), która zwraca wartość 37 zł.
 
-const Player = function(nick, email){
-    this.nick = nick
-    this.email = email
-    this.shoot = () => console.log("SHOOT!")
+const Oferta = function(marka, model, cena){
+    this.marka = marka
+    this.model = model
+    this.cena = cena
+    this.koszt100km = () => console.log("37 zł")
 }
-//prototypujemy graczy - właściwości pola dziedziczone od konstruktora ale nie są dostępne bezpośrednio, rozszerzenie fukcjonalności kalsy
-//przypisuje wszystkim obiektom tworzonym tak samo
 
-Player.prototype.login = () => console.log("Logged!")
-Player.prototype.logout = () => console.log("Logout!")
-Player.prototype.moveleft = () => console.log("Go left!")
-Player.prototype.moveright = () => console.log("Go right!")
+const oferta = new Oferta("BMW", "3", 90000)
 
-//tworzymy graczy
-const player1 = new Player("Nick1", "email1@google.com")
-const player2 = new Player("Nick22", "email22@google.com")
-const player3 = new Player("Nick333", "email333@google.com")
-
-//wypisujemy graczy w konsoli
-console.log(player1)
-console.log(player2)
-console.log(player3)
-
-player1.shoot()
-player1.login()
+console.log(oferta)
