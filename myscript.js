@@ -1,17 +1,27 @@
-//obiekty powtórka
+//Prototypes
 
-const Person = function(name, surname, age){
-    this.name = name
-    this. surname = surname
-    this.age = age
+const Player = function(nick, email){
+    this.nick = nick
+    this.email = email
+    this.shoot = () => console.log("SHOOT!")
 }
+//prototypujemy graczy - właściwości pola dziedziczone od konstruktora ale nie są dostępne bezpośrednio, rozszerzenie fukcjonalności kalsy
+//przypisuje wszystkim obiektom tworzonym tak samo
 
-const person = new Person("Jan", "Kowalski", 35)
-const person2 = new Person("Jan", "Nowak", 25)
-console.log(person, person2)
-console.log(person2.surname)         //drukowanie konkretnej cechy obiektu 
+Player.prototype.login = () => console.log("Logged!")
+Player.prototype.logout = () => console.log("Logout!")
+Player.prototype.moveleft = () => console.log("Go left!")
+Player.prototype.moveright = () => console.log("Go right!")
 
-//tablica z obiektów
+//tworzymy graczy
+const player1 = new Player("Nick1", "email1@google.com")
+const player2 = new Player("Nick22", "email22@google.com")
+const player3 = new Player("Nick333", "email333@google.com")
 
-let persons = [person, person2, new Person("Mick", "Kowalski", 65)]
-console.log(persons)
+//wypisujemy graczy w konsoli
+console.log(player1)
+console.log(player2)
+console.log(player3)
+
+player1.shoot()
+player1.login()
