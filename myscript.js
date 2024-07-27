@@ -1,27 +1,45 @@
-//Prototypes
+//Advanced arrays
 
-const Player = function(nick, email){
-    this.nick = nick
-    this.email = email
-    this.shoot = () => console.log("SHOOT!")
-}
-//prototypujemy graczy - właściwości pola dziedziczone od konstruktora ale nie są dostępne bezpośrednio, rozszerzenie fukcjonalności kalsy
-//przypisuje wszystkim obiektom tworzonym tak samo
+const orders = [
+    {
+      id: 1,
+      title: 'Tennis racket HEAD 23 Junior',
+      price: { amount: '350.00',  delivery: '15.00', currency: 'PLN'},
+      quantity: 1﻿
+    },
+    {
+      id: 2,
+      title: 'Tennis racket HEAD 25 Junior',
+      price: { amount: '500.00',  delivery: '0.00' , currency: 'PLN'},
+      quantity: 2﻿
+    },
+    {
+      id: 3,
+      title: 'Tennis racket HEAD 27 Pro',
+      price: { amount: '750.00', delivery: '0.00' , currency: 'PLN'},
+      quantity: 1﻿
+    }
+  ];
+  //pętla for each
+  orders.forEach(order => {
+        //coś tam z orderem
+  })
 
-Player.prototype.login = () => console.log("Logged!")
-Player.prototype.logout = () => console.log("Logout!")
-Player.prototype.moveleft = () => console.log("Go left!")
-Player.prototype.moveright = () => console.log("Go right!")
+  //pętla map
 
-//tworzymy graczy
-const player1 = new Player("Nick1", "email1@google.com")
-const player2 = new Player("Nick22", "email22@google.com")
-const player3 = new Player("Nick333", "email333@google.com")
+  orders.map( order => {
+    return order.title  //możemy się odnieść bezpośrednio do elementów
+  })
 
-//wypisujemy graczy w konsoli
-console.log(player1)
-console.log(player2)
-console.log(player3)
+  //przypisanie do zmiennej z pętli map
+  const titles = orders.map( order => {
+    return order.title  //możemy się odnieść bezpośrednio do elementów
+  })
 
-player1.shoot()
-player1.login()
+  //możemy też dodać z pomocą funkcji map kolejny element type
+
+  const modified = orders.map( order => {
+    return {...order, source: 'OLX'}  //...order - odnosi się struktury elementu
+  })
+
+  //jeśli chcemy wykorzystać dane z elementów tablicy lepiej stosować pętle map, jeśli chcemy tylko przeiterować to lepiej forEach
